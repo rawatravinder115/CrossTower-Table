@@ -22,8 +22,13 @@ export default function Zebpay(props) {
 	};
 	useEffect(() => {
 		fetchZebpay();
+		const interval = setInterval(() => setTime(Date.now()), 100000);
+    return () => {
+      clearInterval(interval);
+    };
 	}, []);
 	const [arr, setArr] = useState([]);
+	const [time, setTime] = useState(Date.now());
 	return (
 		<div>
 			<h2>Zebpay</h2>

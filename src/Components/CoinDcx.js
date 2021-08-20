@@ -29,8 +29,13 @@ export default function CoinDcx(props) {
 	};
 	useEffect(() => {
 		fetchCoinDcx();
+		const interval = setInterval(() => setTime(Date.now()), 100000);
+    return () => {
+      clearInterval(interval);
+    };
 	}, []);
 	const [arr, setArr] = useState([]);
+	const [time, setTime] = useState(Date.now());
 	return (
 		<div>
 			<h2>Coin DCX</h2>

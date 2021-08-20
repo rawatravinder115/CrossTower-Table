@@ -18,8 +18,13 @@ export default function Wazirx(props) {
 
 	useEffect(() => {
 		fetchWazirx();
+		const interval = setInterval(() => setTime(Date.now()), 100000);
+    return () => {
+      clearInterval(interval);
+    };
 	}, []);
 	const [arr, setArr] = useState([]);
+	const [time, setTime] = useState(Date.now());
 	return (
 		<div>
 			<h2>Wazir X</h2>
