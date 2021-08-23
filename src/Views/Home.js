@@ -3,6 +3,7 @@ import CoinDcx from '../Components/CoinDcx';
 import CrossTower from '../Components/CrossTower';
 import Zebpay from '../Components/Zebpay';
 import Wazirx from '../Components/Wazirx';
+import Chart from '../Components/Chart';
 
 export default function Home() {
 
@@ -26,6 +27,7 @@ export default function Home() {
 			<CoinDcx inr ={inr}/>
 			<Wazirx inr ={inr} />
 			<Zebpay inr ={inr} />
+			<Chart />
 		</div>
 	);
 }
