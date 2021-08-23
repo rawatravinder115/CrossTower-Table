@@ -8,7 +8,7 @@ export default function CrossTower(props) {
 		const resp = await getCrossTowerData();
 		const data = resp.data.map((item) => {
 			const date = new Date(item.timestamp).toLocaleString();
-			return { time: date, price: item.price };
+			return { time: date, price: Math.round(item.price*74.35) };
 		});
 		setArr(data);
 		fetchStaticData();

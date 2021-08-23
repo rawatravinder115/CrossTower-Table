@@ -6,7 +6,7 @@ import { parse } from '../Utils/csv-parser';
 export default function Wazirx(props) {
 	const fetchWazirx = async () => {
 		const resp = await getWazirxData();
-		const data = resp.data['btcusdt'];
+		const data = resp.data['btcinr'];
 		//timestamp = data.at
 		setArr([{ time: new Date().toLocaleString(), price: data.sell}]);
 		fetchStaticData();

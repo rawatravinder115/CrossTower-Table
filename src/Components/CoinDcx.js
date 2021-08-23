@@ -8,7 +8,7 @@ export default function CoinDcx(props) {
 		const resp = await getCoinDcxData();
 		const data = resp.data
 			.filter((item) => {
-				return item["market"] === "BTCUSDT";
+				return item["market"] === "BTCINR";
 			})
 			.map((item) => {
 				// const d1 = new Date();
@@ -17,7 +17,7 @@ export default function CoinDcx(props) {
 				// 		item.timestamp
 				// );
 				const date = new Date();
-				return { time: date.toLocaleString(), price: item.high };
+				return { time: date.toLocaleString(), price: item.ask };
 			});
 
 		setArr(data);
