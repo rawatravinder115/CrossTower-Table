@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import CoinDcx from '../Components/CoinDcx';
-import CrossTower from '../Components/CrossTower';
-import Zebpay from '../Components/Zebpay';
-import Wazirx from '../Components/Wazirx';
-import Chart from '../Components/Chart';
+import React, { useState, useEffect } from "react";
+import CoinDcx from "../Components/CoinDcx";
+import CrossTower from "../Components/CrossTower";
+import Zebpay from "../Components/Zebpay";
+import Wazirx from "../Components/Wazirx";
+// import Chart from '../Components/Chart';
+import { Chart1, Chart2, Chart3, Chart4 } from "../Components/Chart";
 
 export default function Home() {
+	const [inr, setInr] = useState();
 
-	const [inr , setInr] = useState();
-
-	async function fetchData(){
-		const response = await fetch("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd/inr.json")
+	async function fetchData() {
+		const response = await fetch(
+			"https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd/inr.json"
+		);
 		const data = await response.json();
 		const price = parseFloat(data.inr);
-		console.log('price is: ', typeof(price))
+		console.log("price is: ", typeof price);
 		setInr(price);
 	}
 
@@ -24,10 +26,14 @@ export default function Home() {
 	return (
 		<div>
 			<CrossTower inr={inr} />
-			<CoinDcx inr ={inr}/>
-			<Wazirx inr ={inr} />
-			<Zebpay inr ={inr} />
-			<Chart />
+			<CoinDcx inr={inr} />
+			<Wazirx inr={inr} />
+			<Zebpay inr={inr} />
+			{/* <Chart /> */}
+			<Chart1 />
+			<Chart3 />
+			<Chart4 />
+			<Chart2 />
 		</div>
 	);
 }
